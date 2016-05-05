@@ -1,1 +1,6 @@
+<<<<<<< HEAD
+Hello world!
+=======
 Hello World - by Pawanjit
+Hello Pawanjit- by Brian
+>>>>>>> IndigoSlam/master
