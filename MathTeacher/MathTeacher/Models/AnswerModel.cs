@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Elena_Test.Models
+
+namespace MathTeacher.Models
 {
     public class AnswerModel
     {
-        public int AnswerID { get; set; }
+        public int ID { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTIme {get; set;}
 
