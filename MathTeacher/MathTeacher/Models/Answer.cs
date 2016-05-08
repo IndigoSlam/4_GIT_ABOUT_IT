@@ -12,8 +12,5 @@ namespace MathTeacher.Models
         public DateTime StartTime { get; set; }
         public DateTime EndTIme {get; set;}
 
-        public virtual ICollection<Game> Game { get; set; }
-        public virtual ICollection<Question> Question { get; set; }
-
     }
 }
