@@ -19,9 +19,9 @@ namespace MathTeacher.DAL
    
 
         public DbSet<Test> Tests { get; set; }
-        public DbSet<QuestionModel> Questions { get; set; }
-        public DbSet<AnswerModel> Answers { get; set; }
-        public DbSet<GameModel> Games { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+        public DbSet<Game> Games { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {

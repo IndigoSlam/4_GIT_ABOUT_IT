@@ -1,28 +1,26 @@
-﻿@model IEnumerable<MathTeacher.Models.QuestionModel>
+﻿@model IEnumerable<MathTeacher.Models.Game>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Welcome to the game</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    Here are the games rules: ...
+</p>
+
+<p>
+    @Html.ActionLink("Begin game", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Grade)
-        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Grade)
-        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
