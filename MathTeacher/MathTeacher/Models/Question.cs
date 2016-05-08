@@ -11,5 +11,9 @@ namespace MathTeacher.Models
     {
         public int ID { get; set;  }
         public int Grade { get; set; }
+        public string Text { get; set; }
+
+        public virtual ICollection<Answer> Answers { get; set; }
+
     }
 }

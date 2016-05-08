@@ -39,6 +39,31 @@ namespace MathTeacher.Controllers
         // GET: Games/Create
         public ActionResult Create()
         {
+
+            var q = db.Questions.First(); 
+
+            var answer = new Answer()
+            {
+
+            };
+
+            var createdAnswer = db.Answers.Add(answer);
+
+            q.Answers.Add(createdAnswer);
+
+            var game = new Game() {
+                UserName = System.Web.HttpContext.Current.User.Identity.Name
+
+            };
+
+            var createdGame = db.Games.Add(game);
+
+
+            createdGame.Answers.Add(createdAnswer);
+
+            db.SaveChanges();
+
+            
             return View();
         }
 

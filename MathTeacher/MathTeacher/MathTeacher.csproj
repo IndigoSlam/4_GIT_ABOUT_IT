@@ -191,6 +191,30 @@
     <Compile Include="Migrations\201605080542143_rename-models.Designer.cs">
       <DependentUpon>201605080542143_rename-models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605080722229_useradd.cs" />
+    <Compile Include="Migrations\201605080722229_useradd.Designer.cs">
+      <DependentUpon>201605080722229_useradd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605080732022_questionadd.cs" />
+    <Compile Include="Migrations\201605080732022_questionadd.Designer.cs">
+      <DependentUpon>201605080732022_questionadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605080750401_change-field-name.cs" />
+    <Compile Include="Migrations\201605080750401_change-field-name.Designer.cs">
+      <DependentUpon>201605080750401_change-field-name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605080805557_change-field-name1.cs" />
+    <Compile Include="Migrations\201605080805557_change-field-name1.Designer.cs">
+      <DependentUpon>201605080805557_change-field-name1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605080815274_change-field-name2.cs" />
+    <Compile Include="Migrations\201605080815274_change-field-name2.Designer.cs">
+      <DependentUpon>201605080815274_change-field-name2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605080816540_change-field-name3.cs" />
+    <Compile Include="Migrations\201605080816540_change-field-name3.Designer.cs">
+      <DependentUpon>201605080816540_change-field-name3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -299,6 +323,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605080542143_rename-models.resx">
       <DependentUpon>201605080542143_rename-models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605080722229_useradd.resx">
+      <DependentUpon>201605080722229_useradd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605080732022_questionadd.resx">
+      <DependentUpon>201605080732022_questionadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605080750401_change-field-name.resx">
+      <DependentUpon>201605080750401_change-field-name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605080805557_change-field-name1.resx">
+      <DependentUpon>201605080805557_change-field-name1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605080815274_change-field-name2.resx">
+      <DependentUpon>201605080815274_change-field-name2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605080816540_change-field-name3.resx">
+      <DependentUpon>201605080816540_change-field-name3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
