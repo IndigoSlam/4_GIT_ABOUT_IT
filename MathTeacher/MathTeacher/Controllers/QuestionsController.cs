@@ -47,7 +47,7 @@ namespace MathTeacher.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Grade")] Question question)
+        public ActionResult Create([Bind(Include = "ID,Grade,Text")] Question question)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace MathTeacher.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Grade")] Question question)
+        public ActionResult Edit([Bind(Include = "ID,Grade,Text")] Question question)
         {
             if (ModelState.IsValid)
             {

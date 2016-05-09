@@ -10,6 +10,9 @@ namespace MathTeacher.Models
     public class Game
     {
        public int ID {get; set; }
+       public string UserName { get; set; }
+
+        public virtual ICollection<Answer> Answers { get; set; }
 
     }
 }
