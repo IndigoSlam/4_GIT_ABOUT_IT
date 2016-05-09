@@ -16,9 +16,9 @@ namespace MathTeacher.Controllers
         private GameContext db = new GameContext();
 
         // GET: Answers
-        public ActionResult Index()
+        public ActionResult Index(int Id)
         {
-            return View(db.Answers.ToList());
+            return View(db.Games.First(g => g.ID == Id).Answers.ToList());
         }
 
         // GET: Answers/Details/5
@@ -79,13 +79,27 @@ namespace MathTeacher.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,StartTime,EndTIme")] Answer answer)
+        public ActionResult Edit([Bind(Include = "ID,StartTime,EndTIme,Result")] Answer answer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(answer).State = EntityState.Modified;
+                Answer dbanswer = db.Answers.Find(answer.ID);
+
+                dbanswer.Result = answer.Result;
+                dbanswer.EndTIme = DateTime.Now; 
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                
+                var next = dbanswer.Next();
+                if (next == null)
+                {
+                    return RedirectToAction("Index",new { id = dbanswer.Game.ID });
+                }
+                else
+                {
+                    return RedirectToAction("Edit", new { id = next.ID });
+                }
+               
             }
             return View(answer);
         }

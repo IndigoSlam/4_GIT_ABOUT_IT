@@ -40,31 +40,34 @@ namespace MathTeacher.Controllers
         public ActionResult Create()
         {
 
-            var q = db.Questions.First(); 
-
-            var answer = new Answer()
+            var questions = db.Questions.OrderBy(qu => Guid.NewGuid()).Take(5);
+            var game = new Game()
             {
-
-            };
-
-            var createdAnswer = db.Answers.Add(answer);
-
-            q.Answers.Add(createdAnswer);
-
-            var game = new Game() {
-                UserName = System.Web.HttpContext.Current.User.Identity.Name
+                UserName = System.Web.HttpContext.Current.User.Identity.Name,
+                Answers = new List<Answer>()
 
             };
 
             var createdGame = db.Games.Add(game);
+            int answerOrder = 0;
+            foreach (var question in questions)
+            {
+                var answer = new Answer()
+                {
+                    StartTime = DateTime.Now,
+                    EndTIme = DateTime.Now,
+                    Order = answerOrder
+                };
+                var createdAnswer = db.Answers.Add(answer);
+                question.Answers.Add(createdAnswer);
+                createdGame.Answers.Add(createdAnswer);
 
-
-            createdGame.Answers.Add(createdAnswer);
+                answerOrder++;
+            }
 
             db.SaveChanges();
 
-            
-            return View();
+            return RedirectToAction("Edit", "Answers", new { Id = game.Answers.First().ID });
         }
 
         // POST: Games/Create
