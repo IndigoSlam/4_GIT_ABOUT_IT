@@ -40,7 +40,7 @@ namespace MathTeacher.Controllers
         public ActionResult Create()
         {
 
-            var questions = db.Questions.OrderBy(qu => Guid.NewGuid()).Take(5);
+            var questions = db.Questions.OrderBy(qu => Guid.NewGuid()).Take(10);
             var game = new Game()
             {
                 UserName = System.Web.HttpContext.Current.User.Identity.Name,
