@@ -215,6 +215,26 @@
     <Compile Include="Migrations\201605080816540_change-field-name3.Designer.cs">
       <DependentUpon>201605080816540_change-field-name3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605090113346_init1.cs" />
+    <Compile Include="Migrations\201605090113346_init1.Designer.cs">
+      <DependentUpon>201605090113346_init1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605090115033_init2.cs" />
+    <Compile Include="Migrations\201605090115033_init2.Designer.cs">
+      <DependentUpon>201605090115033_init2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605090127338_m1.cs" />
+    <Compile Include="Migrations\201605090127338_m1.Designer.cs">
+      <DependentUpon>201605090127338_m1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605090139294_m2.cs" />
+    <Compile Include="Migrations\201605090139294_m2.Designer.cs">
+      <DependentUpon>201605090139294_m2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605090152534_m3.cs" />
+    <Compile Include="Migrations\201605090152534_m3.Designer.cs">
+      <DependentUpon>201605090152534_m3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -341,6 +361,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605080816540_change-field-name3.resx">
       <DependentUpon>201605080816540_change-field-name3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605090113346_init1.resx">
+      <DependentUpon>201605090113346_init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605090115033_init2.resx">
+      <DependentUpon>201605090115033_init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605090127338_m1.resx">
+      <DependentUpon>201605090127338_m1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605090139294_m2.resx">
+      <DependentUpon>201605090139294_m2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605090152534_m3.resx">
+      <DependentUpon>201605090152534_m3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
