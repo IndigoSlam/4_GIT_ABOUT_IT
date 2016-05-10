@@ -18,7 +18,7 @@ namespace MathTeacher.Controllers
         // GET: Games
         public ActionResult Index()
         {
-            return View(db.Games.ToList());
+            return View(db.Games.Where(g=>g.UserName == System.Web.HttpContext.Current.User.Identity.Name).ToList());
         }
 
         // GET: Games/Details/5
@@ -36,8 +36,8 @@ namespace MathTeacher.Controllers
             return View(game);
         }
 
-        // GET: Games/Create
-        public ActionResult Create()
+        // GET: Games/Start
+        public ActionResult Start()
         {
 
             var questions = db.Questions.OrderBy(qu => Guid.NewGuid()).Take(10);
@@ -45,7 +45,6 @@ namespace MathTeacher.Controllers
             {
                 UserName = System.Web.HttpContext.Current.User.Identity.Name,
                 Answers = new List<Answer>()
-
             };
 
             var createdGame = db.Games.Add(game);
@@ -67,15 +66,15 @@ namespace MathTeacher.Controllers
 
             db.SaveChanges();
 
-            return RedirectToAction("Edit", "Answers", new { Id = game.Answers.First().ID });
+            return RedirectToAction("Give", "Answers", new { Id = game.Answers.First().ID });
         }
 
-        // POST: Games/Create
+        // POST: Games/Start
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID")] Game game)
+        public ActionResult Start([Bind(Include = "ID")] Game game)
         {
             if (ModelState.IsValid)
             {

@@ -1,19 +1,49 @@
 ﻿@model MathTeacher.Models.Game
+@using MathTeacher.Models
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Index</h2>
 
-<div>
-    <h4>Game</h4>
-    <hr />
-    <dl class="dl-horizontal">
-    </dl>
-</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Create New", "Create")
 </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => (new Question()).Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => (new Answer()).Result)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Answers) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Question.Text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Result)
+        </td>
+        <td>
+            @if(!item.IsAnswered)
+            { 
+                @Html.ActionLink("Give", "Give", "Answers",new { id = item.ID }, new { }) 
+            }
+            else
+            {
+                @Html.ActionLink("Review", "Review","Answers", new { id = item.ID }, new { }) 
+            }
+        </td>
+    </tr>
+}
+    <tr>
+        @Html.ActionLink("Back to List", "Index")
+    </tr>
+
+</table>

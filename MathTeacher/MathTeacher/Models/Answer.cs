@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,11 +12,15 @@ namespace MathTeacher.Models
         public int ID { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTIme { get; set; }
+
+        [DisplayName("Question answer")]
         public int Result { get; set; }
         public int Order { get; set; }
+        public bool IsAnswered { get; set; }
 
         public virtual Game Game { get; set; }
         public virtual Question Question { get; set; }
+
 
         public Answer Previous()
         {
