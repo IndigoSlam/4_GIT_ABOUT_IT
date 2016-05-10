@@ -69,11 +69,11 @@
     <br />
     @if (Model.Previous() != null)
     {
-        @Html.ActionLink("Previous", "Edit", new { Id = Model.Previous().ID })
+        @Html.ActionLink("Previous", "Give", new { Id = Model.Previous().ID })
     }
     @if (Model.Next() != null)
     {
-        @Html.ActionLink("Next", "Edit", new { Id = Model.Next().ID })
+        @Html.ActionLink("Next", "Give", new { Id = Model.Next().ID })
     }
 </div>
 

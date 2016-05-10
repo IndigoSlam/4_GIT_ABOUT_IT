@@ -1,0 +1,65 @@
+﻿@model MathTeacher.Models.Answer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Answer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndTIme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndTIme)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Question.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Question.Text)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Question.CorrectAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Question.CorrectAnswer)
+        </dd>
+
+        
+    </dl>
+</div>
+<div>
+
+    @if (Model.Next() == null)
+    {
+        @Html.ActionLink("Back to List", "Details", "Games", new { Id = Model.Game.ID }, new { })
+    }
+   
+    <br />
+    @if (Model.Previous() != null)
+    {
+        @Html.ActionLink("Previous", "Give", new { Id = Model.Previous().ID })
+    }
+    @if (Model.Next() != null)
+    {
+        @Html.ActionLink("Next", "Give", new { Id = Model.Next().ID })
+    }
+</div>
