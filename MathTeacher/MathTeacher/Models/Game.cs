@@ -11,6 +11,7 @@ namespace MathTeacher.Models
     {
        public int ID {get; set; }
        public string UserName { get; set; }
+       public bool GameStatus { get; set; }
 
         public virtual ICollection<Answer> Answers { get; set; }
 
