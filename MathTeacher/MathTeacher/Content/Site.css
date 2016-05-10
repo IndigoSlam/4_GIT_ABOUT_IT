@@ -2,7 +2,7 @@
     padding-top: 50px;
     padding-bottom: 20px;
     background-image: url(/content/assets/backgroundimage1.png);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
 
 }
