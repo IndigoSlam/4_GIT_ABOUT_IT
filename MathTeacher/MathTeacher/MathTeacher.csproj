@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201605100117300_i1.Designer.cs">
       <DependentUpon>201605100117300_i1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605100335008_m34.cs" />
+    <Compile Include="Migrations\201605100335008_m34.Designer.cs">
+      <DependentUpon>201605100335008_m34.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Answer.cs" />
@@ -317,21 +321,17 @@
     <Content Include="Views\Tests\Details.cshtml" />
     <Content Include="Views\Tests\Edit.cshtml" />
     <Content Include="Views\Tests\Index.cshtml" />
-    <Content Include="Views\Games\Create.cshtml" />
-    <Content Include="Views\Games\Delete.cshtml" />
-    <Content Include="Views\Games\Details.cshtml" />
     <Content Include="Views\Games\Edit.cshtml" />
     <Content Include="Views\Games\Index.cshtml" />
-    <Content Include="Views\Answers\Create.cshtml" />
-    <Content Include="Views\Answers\Delete.cshtml" />
-    <Content Include="Views\Answers\Details.cshtml" />
-    <Content Include="Views\Answers\Edit.cshtml" />
-    <Content Include="Views\Answers\Index.cshtml" />
+    <Content Include="Views\Answers\Review.cshtml" />
+    <Content Include="Views\Answers\Give.cshtml" />
+    <Content Include="Views\Games\Details.cshtml" />
     <Content Include="Views\Questions\Create.cshtml" />
     <Content Include="Views\Questions\Delete.cshtml" />
     <Content Include="Views\Questions\Details.cshtml" />
     <Content Include="Views\Questions\Edit.cshtml" />
     <Content Include="Views\Questions\Index.cshtml" />
+    <Content Include="Views\Games\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -386,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605100117300_i1.resx">
       <DependentUpon>201605100117300_i1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605100335008_m34.resx">
+      <DependentUpon>201605100335008_m34.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

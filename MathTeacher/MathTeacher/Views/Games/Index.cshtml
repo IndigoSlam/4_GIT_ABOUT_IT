@@ -12,7 +12,7 @@
 </p>
 
 <p>
-    @Html.ActionLink("Begin game", "Create")
+    @Html.ActionLink("Begin game", "Start")
 </p>
 <table class="table">
     <tr>
@@ -22,7 +22,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>

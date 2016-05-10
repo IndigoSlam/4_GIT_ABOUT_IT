@@ -15,14 +15,8 @@ namespace MathTeacher.Controllers
     {
         private GameContext db = new GameContext();
 
-        // GET: Answers
-        public ActionResult Index(int Id)
-        {
-            return View(db.Games.First(g => g.ID == Id).Answers.ToList());
-        }
-
-        // GET: Answers/Details/5
-        public ActionResult Details(int? id)
+        // GET: Answers/Review/5
+        public ActionResult Review(int? id)
         {
             if (id == null)
             {
@@ -36,31 +30,8 @@ namespace MathTeacher.Controllers
             return View(answer);
         }
 
-        // GET: Answers/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Answers/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,StartTime,EndTIme")] Answer answer)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Answers.Add(answer);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(answer);
-        }
-
-        // GET: Answers/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Answers/Give/5
+        public ActionResult Give(int? id)
         {
             if (id == null)
             {
@@ -74,60 +45,34 @@ namespace MathTeacher.Controllers
             return View(answer);
         }
 
-        // POST: Answers/Edit/5
+        // POST: Answers/Give/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,StartTime,EndTIme,Result")] Answer answer)
+        public ActionResult Give([Bind(Include = "ID,StartTime,EndTIme,Result")] Answer answer)
         {
             if (ModelState.IsValid)
             {
                 Answer dbanswer = db.Answers.Find(answer.ID);
 
                 dbanswer.Result = answer.Result;
-                dbanswer.EndTIme = DateTime.Now; 
+                dbanswer.EndTIme = DateTime.Now;
+                dbanswer.IsAnswered = true;
 
                 db.SaveChanges();
                 
                 var next = dbanswer.Next();
-                if (next == null)
-                {
-                    return RedirectToAction("Index",new { id = dbanswer.Game.ID });
-                }
-                else
-                {
-                    return RedirectToAction("Edit", new { id = next.ID });
-                }
+            
+                  return RedirectToAction("Review",new { id = dbanswer.ID });
+                
+               
+              
+                  
+               
                
             }
             return View(answer);
-        }
-
-        // GET: Answers/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Answer answer = db.Answers.Find(id);
-            if (answer == null)
-            {
-                return HttpNotFound();
-            }
-            return View(answer);
-        }
-
-        // POST: Answers/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Answer answer = db.Answers.Find(id);
-            db.Answers.Remove(answer);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
