@@ -31,6 +31,7 @@ namespace MathTeacher.Controllers
         }
 
         // GET: Answers/Give/5
+        [Authorize]
         public ActionResult Give(int? id)
         {
             if (id == null)
