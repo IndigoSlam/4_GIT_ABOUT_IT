@@ -11,7 +11,7 @@ using MathTeacher.Models;
 
 namespace MathTeacher.Controllers
 {
-    public class AnswersController : Controller
+    [Authorize]public class AnswersController : Controller
     {
         private GameContext db = new GameContext();
 
@@ -59,6 +59,7 @@ namespace MathTeacher.Controllers
                 dbanswer.Result = answer.Result;
                 dbanswer.EndTIme = DateTime.Now;
                 dbanswer.IsAnswered = true;
+
 
                 db.SaveChanges();
                 
