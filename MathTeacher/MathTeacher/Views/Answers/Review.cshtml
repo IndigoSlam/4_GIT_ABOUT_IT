@@ -1,31 +1,25 @@
 ﻿@model MathTeacher.Models.Answer
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Check your Answer";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Check your Answer</h2>
 
 <div>
-    <h4>Answer</h4>
+ 
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.StartTime)
+           Time taken  
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.StartTime)
+            @((Model.EndTIme - Model.StartTime).ToString(@"hh\:mm\:ss"))
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EndTIme)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EndTIme)
-        </dd>
+       
         <dt>
             @Html.DisplayNameFor(model => model.Question.Text)
         </dt>
@@ -43,7 +37,20 @@
             @Html.DisplayFor(model => model.Question.CorrectAnswer)
         </dd>
 
-        
+        @if (Model.Result == Model.Question.CorrectAnswer)
+        {
+            <div>
+               <h4 style="color: green">Your answer is CORRECT</h4>
+            </div>
+        }
+
+        else
+        {
+            <div>
+                <h4 style="color: red">Your answer is WRONG</h4>
+            </div>
+        }
+
     </dl>
 </div>
 <div>

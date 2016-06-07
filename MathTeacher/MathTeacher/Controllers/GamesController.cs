@@ -33,6 +33,14 @@ namespace MathTeacher.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.TotalQuestions = game.Answers.Count();
+            ViewBag.CorrectAnswers = game.Answers
+                .Where(a => a.Result == a.Question.CorrectAnswer)
+                .Count();
+
+            ViewBag.TotalTimeTaken = new TimeSpan(game.Answers.Sum(a => (a.EndTIme - a.StartTime).Ticks));
+
             return View(game);
         }
 
